@@ -1,29 +1,56 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, shallowRef, useTemplateRef } from 'vue'
 import AppLink from '../AppLink.vue'
 import Button_UI from '../ui/Button_UI.vue'
 import { Icon } from '@iconify/vue'
+import { useIntersectionObserver } from '@vueuse/core'
 
 const showProducts = ref<boolean | null>(false)
 const showNavBarMobile = ref<boolean | null>(false)
+
+const target = useTemplateRef<HTMLDivElement>('target')
+const headerRef = useTemplateRef<HTMLElement>('headerRef')
+const targetIsVisible = shallowRef(false)
+
+// show other links under products
 const toogleProducts = () => {
   showProducts.value = !showProducts.value
 }
 
+// show nav on mobile screen
 const toogleOpenNavbar = () => {
   showNavBarMobile.value = true
 }
 
+// close nav on mobile screen
 const toogleCLoseNavbar = () => {
   showNavBarMobile.value = false
 }
+
+// observe navbar
+useIntersectionObserver(
+  target,
+  ([entry]) => {
+    targetIsVisible.value = entry?.isIntersecting || false
+  },
+  {
+    threshold: 1,
+  },
+)
 </script>
 
 <template>
-  <section class="mx-auto px-5 lg:px-8 py-10">
-    <header>
+  <section class="py-10">
+    <div ref="target"></div>
+    <header
+      ref="headerRef"
+      :class="[
+        'top-0 w-full   z-50 transition-all duration-300 ease-in-out',
+        !targetIsVisible ? 'fixed bg-white w-full py-3' : 'relative',
+      ]"
+    >
       <!-- desktop -->
-      <div class="flex justify-between items-center">
+      <div class="flex justify-between items-center px-5 lg:px-8">
         <!-- logo -->
         <div class="w-[80px] h-[80px] bg-slate-100 rounded-full">
           <img
@@ -48,7 +75,7 @@ const toogleCLoseNavbar = () => {
 
             <!-- sublinks under products -->
             <Transition>
-              <div v-show="showProducts" class="absolute top-24 p-5 bg-gray-200 w-[500px]">
+              <div v-show="showProducts" class="absolute top-16 p-5 bg-gray-200 w-[500px]">
                 <p>Hollow</p>
                 <p>Solid</p>
               </div>
@@ -66,12 +93,14 @@ const toogleCLoseNavbar = () => {
         <div class="md:flex gap-5 hidden">
           <!-- login -->
           <AppLink to="/auth/login">
-            <Button_UI>Login</Button_UI>
+            <Button_UI class="rounded-full font-roboto_mono">Login</Button_UI>
           </AppLink>
 
           <!-- register -->
           <AppLink to="/auth/register ">
-            <Button_UI variant="secondary">Register</Button_UI>
+            <Button_UI variant="secondary" class="font-roboto_mono rounded-full"
+              >Register</Button_UI
+            >
           </AppLink>
         </div>
 
