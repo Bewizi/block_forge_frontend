@@ -14,11 +14,11 @@ onMounted(() => {
 
 <template>
   <main
-    class="bg-[url('/images/Road_Construction.jpg')] h-screen bg-cover bg-no-repeat grid place-items-center bg-slate-700/50 bg-blend-multiply mt-16"
+    class="bg-[url('/images/Road_Construction.jpg')] h-screen bg-cover bg-no-repeat grid place-items-center bg-slate-700/50 bg-blend-overlay mt-16"
     type="image/png"
   >
     <!-- hero text -->
-    <div class="text-center p-4 max-w-4xl mx-auto">
+    <div class="text-center text-white p-4 max-w-4xl mx-auto">
       <h1
         class="txt-sdw text-4xl md:text-6xl font-bold text-primary-heading mb-4 leading-tight font-saira"
       >
@@ -35,7 +35,7 @@ onMounted(() => {
       <div class="flex gap-5 items-center justify-center">
         <AppLink to="">
           <button
-            class="bg-accent_btn text-white px-8 py-3 rounded-full shadow-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 font-roboto_mono"
+            class="bg-accent_btn text-white px-8 py-3 rounded-full hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 font-roboto_mono"
           >
             Explore Our Products
           </button>
@@ -43,7 +43,7 @@ onMounted(() => {
 
         <AppLink to="">
           <button
-            class="bg-white text-secondary_text border border-primary-heading px-8 py-3 rounded-full shadow-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 font-roboto_mono"
+            class="bg-white text-secondary_text border border-primary-heading px-8 py-3 rounded-full hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 font-roboto_mono"
           >
             Contact Us
           </button>
@@ -55,6 +55,6 @@ onMounted(() => {
 
 <style scoped>
 .txt-sdw {
-  text-shadow: 1px 1px 2px gray;
+  text-shadow: 1px 1px 2px black;
 }
 </style>
