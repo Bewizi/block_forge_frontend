@@ -1,14 +1,13 @@
 <script setup lang="ts">
-import AppContainer from '@/components/AppContainer.vue'
 import HeroSection from '@/components/HeroSection.vue'
 </script>
 
 <template>
   <section>
-    <AppContainer>
+    <!-- <AppContainer>
       <main class="h-screen">
         <section class="flex flex-col lg:flex-row items-center justify-between gap-5">
-          <!-- hero text -->
+
           <div>
             <h1
               class="text-4xl md:text-6xl font-bold text-primary-heading mb-4 leading-tight font-saira"
@@ -22,7 +21,7 @@ import HeroSection from '@/components/HeroSection.vue'
               in any construction endeavor.
             </p>
 
-            <!-- button -->
+
             <div class="flex gap-5">
               <button
                 class="bg-accent_btn text-white px-8 py-3 rounded-full shadow-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 font-roboto_mono"
@@ -37,17 +36,17 @@ import HeroSection from '@/components/HeroSection.vue'
             </div>
           </div>
 
-          <!-- image -->
+
           <div class="">
             <img
               src="/images/Road_Construction.jpg"
               alt="Road Construction"
-              class="block object-cover max-w-full w-[600px] h-[600px]"
+              class="block object-cover max-w-full w-[600px] h-[600px] rounded-md"
             />
           </div>
         </section>
       </main>
-    </AppContainer>
+    </AppContainer> -->
 
     <HeroSection />
   </section>
