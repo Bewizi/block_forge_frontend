@@ -20,3 +20,10 @@ export interface Profile {
   phone: string
   role: string
 }
+
+export interface HolloBlocks {
+  id: string
+  name: string
+  image: string
+  category: string
+}
