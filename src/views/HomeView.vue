@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import AllProducts from '@/components/AllProducts.vue'
 import HeroSection from '@/components/HeroSection.vue'
 </script>
 
@@ -49,5 +50,7 @@ import HeroSection from '@/components/HeroSection.vue'
     </AppContainer> -->
 
     <HeroSection />
+
+    <AllProducts />
   </section>
 </template>
