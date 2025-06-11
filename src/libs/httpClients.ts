@@ -8,4 +8,13 @@ const httpClient = axios.create({
   withCredentials: true,
 })
 
+// const hollowBLokcs = () => {
+//   const response = httpClient.get('/products/allProducts')
+//   console.log(response)
+
+//   return {
+//     hollowBLokcs,
+//   }
+// }
+
 export default httpClient
