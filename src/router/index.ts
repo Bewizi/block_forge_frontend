@@ -24,6 +24,11 @@ const routes = [
         component: () => import('../views/AboutView.vue'),
       },
       {
+        path: '/block/:id',
+        name: 'block',
+        component: () => import('@/views/BlockView.vue'),
+      },
+      {
         path: '/hollow',
         name: 'hollow',
         component: () => import('@/pages/Hollow_Block_Page.vue'),
