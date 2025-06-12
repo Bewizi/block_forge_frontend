@@ -1,27 +1,26 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
 import ProductCard from './ProductCard.vue'
-import type { HolloBlocks } from '@/types'
-import httpClient from '@/libs/httpClients'
 
-const hollowProduct = ref<HolloBlocks[]>([])
+import { userProducts } from '@/composables/useProducts'
+import { onMounted } from 'vue'
+import AppContainer from './AppContainer.vue'
+
+const { allBlocks, initializeData } = userProducts()
 
 onMounted(async () => {
-  try {
-    const response = await httpClient.get('/products/allProducts')
-    console.log(response.data)
-    hollowProduct.value = response.data.products || []
-  } catch (error) {
-    console.log('Could not fetch data', error)
-  }
+  await initializeData()
 })
 </script>
 
 <template>
-  <div>
-    <h1>Hollow Block</h1>
-    <ProductCard v-for="blocks in hollowProduct" :key="blocks.id" :hollow="blocks" />
-  </div>
+  <AppContainer class="mt-32">
+    <div>
+      <h1 class="text-4xl text-center lg:text-6xl lg:text-start font-saira mb-8">All Block</h1>
+      <div class="grid grid-cols-1 md:grid-cols-2 justify-center items-center lg:grid-cols-3 gap-4">
+        <ProductCard v-for="blocks in allBlocks" :key="blocks.id" :block="blocks" />
+      </div>
+    </div>
+  </AppContainer>
 </template>
 
 <style scoped></style>
