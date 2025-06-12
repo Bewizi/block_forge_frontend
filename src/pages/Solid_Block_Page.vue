@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import AppContainer from '@/components/AppContainer.vue'
+import AppLink from '@/components/AppLink.vue'
 import httpClient from '@/libs/httpClients'
 import type { Blocks } from '@/types'
 import { onMounted, ref } from 'vue'
@@ -23,7 +24,9 @@ onMounted(async () => {
     <div>
       <div v-for="solid in solidBlocks" :key="solid.id">
         <h1 class="mt-32 first-letter:uppercase">{{ solid.category }} Block</h1>
-        <img :src="solid.image" :alt="solid.name" />
+        <AppLink :to="`/block/${solid.id}`">
+          <img :src="solid.image" :alt="solid.name" />
+        </AppLink>
         <h1>{{ solid.name }}</h1>
         <span>{{ solid.price.toFixed(2) }}</span>
         <p>{{ solid.description }}</p>

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import AppContainer from '@/components/AppContainer.vue'
+import AppLink from '@/components/AppLink.vue'
 import httpClient from '@/libs/httpClients'
 import type { Blocks } from '@/types'
 import { onMounted, ref } from 'vue'
@@ -23,7 +24,9 @@ onMounted(async () => {
     <div>
       <div v-for="hollow in hollowBlocks" :key="hollow.id">
         <h1 class="mt-32 first-letter:uppercase">{{ hollow.category }} Block</h1>
-        <img :src="hollow.image" :alt="hollow.name" />
+        <AppLink :to="`/block/${hollow.id}`">
+          <img :src="hollow.image" :alt="hollow.name" />
+        </AppLink>
         <h1>{{ hollow.name }}</h1>
         <span>{{ hollow.price.toFixed(2) }}</span>
         <p>{{ hollow.description }}</p>
