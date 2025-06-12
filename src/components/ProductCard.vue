@@ -23,7 +23,7 @@ defineProps<{
   <div
     class="bg-primary_bg rounded-md shadow border border-accent_btn p-10 relative hover:scale-105 transition-all duration-300 w-[400px] h-full"
   >
-    <AppLink :to="block.id">
+    <AppLink :to="`/block/${block.id}`">
       <div class="flex justify-center">
         <img :src="block.image" :alt="block.name" class="w-[200px] h-[200px] object-cover" />
       </div>
