@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import AllProducts from '@/components/AllProducts.vue'
+import Call_to_Action from '@/components/Call_to_Action.vue'
 import HeroSection from '@/components/HeroSection.vue'
 </script>
 
@@ -52,5 +53,7 @@ import HeroSection from '@/components/HeroSection.vue'
     <HeroSection />
 
     <AllProducts />
+
+    <Call_to_Action />
   </section>
 </template>
