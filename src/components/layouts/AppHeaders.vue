@@ -63,7 +63,7 @@ useIntersectionObserver(
         <!-- nav -->
         <nav class="hidden lg:flex lg:space-x-8 font-roboto_mono text-secondary_text">
           <AppLink to="/">Home</AppLink>
-          <AppLink @click="toogleProducts" to="/">
+          <div @click="toogleProducts" class="cursor-pointer">
             <span class="flex items-center gap-2 relative"
               >Produts
               <Icon
@@ -76,11 +76,11 @@ useIntersectionObserver(
             <!-- sublinks under products -->
             <Transition>
               <div v-show="showProducts" class="absolute top-16 p-5 bg-gray-200 w-[500px]">
-                <p>Hollow</p>
-                <p>Solid</p>
+                <AppLink to="/hollow">Hollow</AppLink>
+                <AppLink to="/solid" class="block">Solid</AppLink>
               </div>
             </Transition>
-          </AppLink>
+          </div>
 
           <!-- about us -->
           <AppLink to="/">About Us</AppLink>
