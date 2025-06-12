@@ -23,6 +23,16 @@ const routes = [
         // which is lazy-loaded when the route is visited.
         component: () => import('../views/AboutView.vue'),
       },
+      {
+        path: '/hollow',
+        name: 'hollow',
+        component: () => import('@/pages/Hollow_Block_Page.vue'),
+      },
+      {
+        path: '/solid',
+        name: 'solid',
+        component: () => import('@/pages/Solid_Block_Page.vue'),
+      },
     ],
   },
 
