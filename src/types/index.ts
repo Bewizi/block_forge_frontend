@@ -21,9 +21,13 @@ export interface Profile {
   role: string
 }
 
-export interface HolloBlocks {
+export interface Blocks {
   id: string
   name: string
   image: string
+  price: number
+  description: string
+  use: string
+  size: string
   category: string
 }
