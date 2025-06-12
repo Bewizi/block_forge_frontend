@@ -40,14 +40,6 @@ onMounted(() => {
             Explore Our Products
           </button>
         </AppLink>
-
-        <AppLink to="">
-          <button
-            class="bg-white text-secondary_text border border-primary-heading px-8 py-3 rounded-full hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 font-roboto_mono"
-          >
-            Contact Us
-          </button>
-        </AppLink>
       </div>
     </div>
   </main>
