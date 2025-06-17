@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import AppContainer from '@/components/AppContainer.vue'
 import AppLink from '@/components/AppLink.vue'
+import Card_UI from '@/components/ui/Card_UI.vue'
 import httpClient from '@/libs/httpClients'
 import type { Blocks } from '@/types'
+import { Icon } from '@iconify/vue'
 import { onMounted, ref } from 'vue'
 
 const hollowBlocks = ref<Blocks[]>([])
@@ -21,27 +23,37 @@ onMounted(async () => {
 <template>
   <AppContainer>
     <!-- hollow blocks -->
-    <div>
+    <section class="flex justify-center flex-wrap lg:flex-row gap-8 items-center">
       <div v-for="hollow in hollowBlocks" :key="hollow.id">
-        <h1 class="mt-32 first-letter:uppercase">{{ hollow.category }} Block</h1>
-        <AppLink :to="`/block/${hollow.id}`">
-          <img :src="hollow.image" :alt="hollow.name" />
-        </AppLink>
-        <h1>{{ hollow.name }}</h1>
-        <span>{{ hollow.price.toFixed(2) }}</span>
-        <p>{{ hollow.description }}</p>
-        <!-- <p>{{ solid.price }}</p> -->
-      </div>
+        <Card_UI class-name="text-center">
+          <AppLink :to="`/block/${hollow.id}`">
+            <div class="flex justify-center">
+              <img
+                :src="hollow.image"
+                :alt="hollow.name"
+                class="object-cover w-[200px] h-[200px] block rounded-2xl"
+              />
+            </div>
+          </AppLink>
+          <h1 class="mb-5 font-saira font-semibold text-2xl mt-5">{{ hollow.name }}</h1>
+          <span class="flex items-center gap-2 font-roboto_mono justify-center">
+            <Icon icon="tabler:currency-naira" width="24" height="24" class="text-[#000000]" />
+            {{ hollow.price.toFixed(2) }}</span
+          >
+          <p class="text-lg font-roboto_mono mt-5">{{ hollow.description }}</p>
+          <!-- <p>{{ solid.price }}</p> -->
 
-      <!-- view more -->
-      <!-- link with a button -->
-      <!-- <div class="mt-5">
-        <AppLink to="/hollow">
-          <button>View More</button>
-        </AppLink>
-      </div> -->
-      <!-- view more -->
-    </div>
+          <!-- view more -->
+          <!-- link with a button -->
+          <!-- <div class="mt-5">
+            <AppLink to="/hollow">
+              <button>View More</button>
+            </AppLink>
+          </div> -->
+          <!-- view more -->
+        </Card_UI>
+      </div>
+    </section>
   </AppContainer>
 </template>
 
