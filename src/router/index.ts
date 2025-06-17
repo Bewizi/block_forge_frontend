@@ -48,6 +48,11 @@ const routes = [
         name: 'projects',
         component: () => import('@/views/ProjectView.vue'),
       },
+      {
+        path: '/:pathMatch(.*)*',
+        name: 'notFound',
+        component: () => import('@/views/NotFoundView.vue'),
+      },
     ],
   },
 
@@ -66,12 +71,6 @@ const routes = [
         component: () => import('@/auth/RegisterPage.vue'),
       },
     ],
-  },
-
-  {
-    path: '/:pathMatch(.*)*',
-    name: 'notFound',
-    component: () => import('@/views/NotFoundView.vue'),
   },
 ]
 
