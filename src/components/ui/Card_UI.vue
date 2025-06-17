@@ -1,7 +1,11 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+defineProps<{
+  className?: string
+}>()
+</script>
 
 <template>
-  <div class="w-[500px] bg-white shadow p-10 rounded-md">
+  <div :class="[className, 'w-[500px] bg-white shadow p-10 rounded-2xl border border-accent_btn']">
     <slot></slot>
   </div>
 </template>
