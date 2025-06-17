@@ -52,17 +52,22 @@ useIntersectionObserver(
       <!-- desktop -->
       <div class="flex justify-between items-center px-5 lg:px-8">
         <!-- logo -->
-        <div class="w-[80px] h-[80px] bg-slate-100 rounded-full">
-          <img
-            src="/images/Logo.png"
-            alt="Block Forge Logo"
-            class="block object-cover max-w-full"
-          />
-        </div>
+        <AppLink to="/">
+          <div class="w-[80px] h-[80px] bg-slate-100 rounded-full">
+            <img
+              src="/images/Logo.png"
+              alt="Block Forge Logo"
+              class="block object-cover max-w-full"
+            />
+          </div>
+        </AppLink>
 
         <!-- nav -->
         <nav class="hidden lg:flex lg:space-x-8 font-roboto_mono text-secondary_text">
+          <!-- home -->
           <AppLink to="/">Home</AppLink>
+
+          <!-- product -->
           <div @click="toogleProducts" class="cursor-pointer">
             <span class="flex items-center gap-2 relative"
               >Produts
@@ -75,7 +80,10 @@ useIntersectionObserver(
 
             <!-- sublinks under products -->
             <Transition>
-              <div v-show="showProducts" class="absolute top-16 p-5 bg-gray-200 w-[500px]">
+              <div
+                v-show="showProducts"
+                class="absolute top-16 px-5 py-2 rounded-md bg-primary_bg w-[100px] space-y-2"
+              >
                 <AppLink to="/hollow">Hollow</AppLink>
                 <AppLink to="/solid" class="block">Solid</AppLink>
               </div>
@@ -83,10 +91,16 @@ useIntersectionObserver(
           </div>
 
           <!-- about us -->
-          <AppLink to="/">About Us</AppLink>
-          <AppLink to="/">Projects</AppLink>
-          <AppLink to="/">Contractor Hub</AppLink>
-          <AppLink to="/">Contact</AppLink>
+          <AppLink to="/about">About Us</AppLink>
+
+          <!-- projects -->
+          <AppLink to="/projects">Projects</AppLink>
+
+          <!-- contractor hub -->
+          <AppLink to="/contractor-hub">Contractor Hub</AppLink>
+
+          <!-- contact -->
+          <AppLink to="/contact">Contact Us</AppLink>
         </nav>
 
         <!-- login and signup button -->
