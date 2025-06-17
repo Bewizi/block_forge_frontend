@@ -38,6 +38,11 @@ const routes = [
         name: 'solid',
         component: () => import('@/pages/Solid_Block_Page.vue'),
       },
+      {
+        path: '/contact',
+        name: 'contact',
+        component: () => import('@/views/ContactView.vue'),
+      },
     ],
   },
 
