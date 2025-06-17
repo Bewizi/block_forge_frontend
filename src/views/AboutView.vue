@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import AppContainer from '@/components/AppContainer.vue'
+import Call_to_Action from '@/components/Call_to_Action.vue'
 import Card_UI from '@/components/ui/Card_UI.vue'
 import { Icon } from '@iconify/vue'
 
@@ -84,6 +85,8 @@ const goals = [
       </section>
     </div>
   </AppContainer>
+
+  <Call_to_Action />
 </template>
 
 <style></style>
