@@ -43,6 +43,11 @@ const routes = [
         name: 'contact',
         component: () => import('@/views/ContactView.vue'),
       },
+      {
+        path: '/projects',
+        name: 'projects',
+        component: () => import('@/views/ProjectView.vue'),
+      },
     ],
   },
 
