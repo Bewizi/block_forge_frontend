@@ -52,7 +52,7 @@ import { Icon } from '@iconify/vue'
             <label class="block mb-2" for="name">Name:</label>
             <input
               type="text"
-              class="w-[500px] border border-primary_heading rounded-md p-2 font-roboto_mono text-lg placeholder:text-lg"
+              class="w-full lg:w-[500px] border border-primary_heading rounded-md p-2 font-roboto_mono text-lg placeholder:text-lg"
               placeholder="Enter your name"
             />
           </div>
@@ -62,7 +62,7 @@ import { Icon } from '@iconify/vue'
             <label class="block mb-2" for="email">Email:</label>
             <input
               type="email"
-              class="w-[500px] border border-primary_heading rounded-md p-2 font-roboto_mono text-lg placeholder:text-lg"
+              class="w-full lg:w-[500px] border border-primary_heading rounded-md p-2 font-roboto_mono text-lg placeholder:text-lg"
               placeholder="Enter your email address"
             />
           </div>
@@ -76,7 +76,7 @@ import { Icon } from '@iconify/vue'
               cols="20"
               rows="10"
               placeholder="Decription"
-              class="w-[500px] border border-primary_heading rounded-md p-2 font-roboto_mono text-lg placeholder:text-lg resize-none"
+              class="w-full lg:w-[500px] border border-primary_heading rounded-md p-2 font-roboto_mono text-lg placeholder:text-lg resize-none"
             ></textarea>
           </div>
 
