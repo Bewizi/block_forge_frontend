@@ -104,7 +104,7 @@ useIntersectionObserver(
         </nav>
 
         <!-- login and signup button -->
-        <div class="md:flex gap-5 hidden">
+        <div class="lg:flex gap-5 hidden">
           <!-- login -->
           <AppLink to="/auth/login">
             <Button_UI class="rounded-full font-roboto_mono">Login</Button_UI>
@@ -143,7 +143,8 @@ useIntersectionObserver(
       <!-- mobile view nav -->
       <nav v-show="showNavBarMobile" class="flex flex-col lg:hidden space-y-8">
         <AppLink to="/">Home</AppLink>
-        <AppLink @click="toogleProducts" to="/">
+        <!-- product -->
+        <div @click="toogleProducts" class="cursor-pointer">
           <span class="flex items-center gap-2 relative"
             >Produts
             <Icon
@@ -155,18 +156,21 @@ useIntersectionObserver(
 
           <!-- sublinks under products -->
           <Transition>
-            <div v-show="showProducts" class="absolute top-50 p-5 bg-gray-200 w-[500px]">
-              <p>Hollow</p>
-              <p>Solid</p>
+            <div
+              v-show="showProducts"
+              class="absolute top-16 px-5 py-2 rounded-md bg-primary_bg w-[100px] space-y-2"
+            >
+              <AppLink to="/hollow">Hollow</AppLink>
+              <AppLink to="/solid" class="block">Solid</AppLink>
             </div>
           </Transition>
-        </AppLink>
+        </div>
 
         <!-- about us -->
-        <AppLink to="/">About Us</AppLink>
-        <AppLink to="/">Projects</AppLink>
+        <AppLink to="/about">About Us</AppLink>
+        <AppLink to="/porjects">Projects</AppLink>
         <AppLink to="/">Contractor Hub</AppLink>
-        <AppLink to="/">Contact</AppLink>
+        <AppLink to="/contact">Contact</AppLink>
       </nav>
     </header>
   </section>
