@@ -1,7 +1,9 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div></div>
+  <div class="w-[500px] bg-white shadow p-10 rounded-md">
+    <slot></slot>
+  </div>
 </template>
 
 <style scoped></style>
