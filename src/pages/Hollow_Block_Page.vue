@@ -23,9 +23,9 @@ onMounted(async () => {
 <template>
   <AppContainer>
     <!-- hollow blocks -->
-    <section class="flex justify-center flex-wrap lg:flex-row gap-8 items-center">
+    <section class="flex justify-center flex-wrap lg:flex-row gap-8">
       <div v-for="hollow in hollowBlocks" :key="hollow.id">
-        <Card_UI class-name="text-center">
+        <Card_UI class-name="text-center h-[600px]">
           <AppLink :to="`/block/${hollow.id}`">
             <div class="flex justify-center">
               <img

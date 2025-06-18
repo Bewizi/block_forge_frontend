@@ -23,9 +23,9 @@ onMounted(async () => {
 <template>
   <AppContainer>
     <!-- solid blocks -->
-    <section class="flex justify-center flex-wrap lg:flex-row gap-8 items-center">
+    <section class="flex justify-center flex-wrap lg:flex-row gap-8">
       <div v-for="solid in solidBlocks" :key="solid.id" class="text-center">
-        <Card_UI>
+        <Card_UI class="h-[600px]">
           <AppLink :to="`/block/${solid.id}`">
             <div class="flex justify-center mb-5">
               <img
