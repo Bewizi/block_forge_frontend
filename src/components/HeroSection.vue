@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import AppLink from './AppLink.vue'
-
 import { onMounted } from 'vue'
 
 onMounted(() => {
@@ -33,13 +31,13 @@ onMounted(() => {
 
       <!-- button -->
       <div class="flex gap-5 items-center justify-center">
-        <AppLink to="">
+        <a href="#products">
           <button
             class="bg-accent_btn text-white px-8 py-3 rounded-full hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 font-roboto_mono"
           >
             Explore Our Products
           </button>
-        </AppLink>
+        </a>
       </div>
     </div>
   </main>
