@@ -1,20 +1,41 @@
 <script setup lang="ts">
 import ProductCard from './ProductCard.vue'
-
+import { motion } from 'motion-v'
 import { userProducts } from '@/composables/useProducts'
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
+import { useIntersectionObserver } from '@vueuse/core'
 import AppContainer from './AppContainer.vue'
 
+const isVisible = ref<boolean>(false)
+const sectionRef = ref<HTMLElement | null>(null)
 const { allBlocks, initializeData } = userProducts()
 
 onMounted(async () => {
   await initializeData()
 })
+
+useIntersectionObserver(
+  sectionRef,
+  ([{ isIntersecting }]) => {
+    if (isIntersecting) {
+      isVisible.value = isIntersecting
+    }
+  },
+  {
+    threshold: 0.3,
+  },
+)
 </script>
 
 <template>
   <AppContainer class="py-16 mt-32">
-    <div>
+    <motion.div
+      ref="sectionRef"
+      v-show="true"
+      :initial="{ opacity: 0, y: 20 }"
+      :animate="isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }"
+      :transition="{ duration: 0.8, ease: 'easeInOut' }"
+    >
       <h1 id="products" class="text-4xl text-center lg:text-6xl lg:text-start font-saira mb-8">
         All Block
       </h1>
@@ -23,7 +44,7 @@ onMounted(async () => {
       >
         <ProductCard v-for="blocks in allBlocks" :key="blocks.id" :block="blocks" />
       </div>
-    </div>
+    </motion.div>
   </AppContainer>
 </template>
 
