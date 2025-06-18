@@ -44,11 +44,16 @@ export const userProducts = () => {
   }
 
   const fetchBlockById = async () => {
+    const id = route.params.id
+
+    if (!id) {
+      console.warn('No product ID found in route params')
+      return
+    }
     try {
-      const id = route.params.id
       const response = await httpClient.get(`/products/getProduct/${id}`)
       // console.log(response.data.productId)
-      blockById.value = response.data
+      blockById.value = [response.data.productId]
 
       return blockById.value
     } catch (error) {
