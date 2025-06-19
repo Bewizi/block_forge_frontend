@@ -8,7 +8,7 @@ import AppContainer from './AppContainer.vue'
 
 const isVisible = ref<boolean>(false)
 const sectionRef = ref<HTMLElement | null>(null)
-const { allBlocks, initializeData } = userProducts()
+const { allBlocks, initializeData, isLoading, error } = userProducts()
 
 onMounted(async () => {
   await initializeData()
@@ -36,10 +36,19 @@ useIntersectionObserver(
       :animate="isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }"
       :transition="{ duration: 0.8, ease: 'easeInOut' }"
     >
-      <h1 id="products" class="text-4xl text-center lg:text-6xl lg:text-start font-saira mb-8">
+      <h1 id="products" class="text-4xl lg:text-6xl lg:text-start font-saira mb-8 font-bold">
         All Block
       </h1>
+
+      <div v-if="isLoading" class="text-4xl font-roboto_mono font-semibold text-center">
+        Loading...
+      </div>
+
+      <!-- Error State -->
+      <div v-if="error" class="text-red-500 font-bold text-center">Error: {{ error }}</div>
+
       <div
+        v-if="!isLoading && !error"
         class="grid grid-cols-1 place-items-center md:grid-cols-2 items-center lg:grid-cols-3 gap-4"
       >
         <ProductCard v-for="blocks in allBlocks" :key="blocks.id" :block="blocks" />
