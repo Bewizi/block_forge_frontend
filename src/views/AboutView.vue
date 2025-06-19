@@ -3,6 +3,23 @@ import AppContainer from '@/components/AppContainer.vue'
 import Call_to_Action from '@/components/Call_to_Action.vue'
 import Card_UI from '@/components/ui/Card_UI.vue'
 import { Icon } from '@iconify/vue'
+import { useIntersectionObserver } from '@vueuse/core'
+import { motion } from 'motion-v'
+import { ref } from 'vue'
+const isVisible = ref<boolean>(false)
+const sectionRef = ref<HTMLElement | null>(null)
+
+useIntersectionObserver(
+  sectionRef,
+  ([{ isIntersecting }]) => {
+    if (isIntersecting) {
+      isVisible.value = true
+    }
+  },
+  {
+    threshold: 0.3,
+  },
+)
 
 const goals = [
   {
@@ -35,7 +52,7 @@ const goals = [
 <template>
   <AppContainer>
     <div class="about">
-      <h1 class="font-saira font-bold text-6xl mb-5">About Block Forge</h1>
+      <h1 class="font-saira font-bold text-4xl lg:text-6xl mb-5">About Block Forge</h1>
 
       <img
         src="/images/A_manufacturing_comp.png"
@@ -65,7 +82,14 @@ const goals = [
 
     <!-- goals, vision, product -->
     <div>
-      <section class="flex flex-wrap flex-col lg:flex-row gap-5 justify-center mt-20">
+      <motion.section
+        ref="sectionRef"
+        v-show="true"
+        :initial="{ opacity: 0, y: 20 }"
+        :animate="isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }"
+        :transition="{ duration: 0.8, ease: 'easeInOut' }"
+        class="flex flex-wrap flex-col lg:flex-row gap-5 justify-center mt-20"
+      >
         <Card_UI v-for="items in goals" :key="items.id">
           <div class="flex items-center justify-center mb-5">
             <Icon
@@ -82,7 +106,7 @@ const goals = [
             {{ items.text }}
           </p>
         </Card_UI>
-      </section>
+      </motion.section>
     </div>
   </AppContainer>
 
