@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<!-- <script setup lang="ts">
 import { ref } from 'vue'
 import { useAuth } from '@/composables/useAuth'
 import type { SignUpForm } from '@/types'
@@ -59,4 +59,4 @@ const onSubmit = async () => {
     <button type="submit">Sign Up</button>
     <p v-if="error" class="error">{{ error }}</p>
   </form>
-</template>
+</template> -->
