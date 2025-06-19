@@ -60,3 +60,35 @@ const onSubmit = async () => {
     <p v-if="error" class="error">{{ error }}</p>
   </form>
 </template> -->
+
+<script lang="ts" setup></script>
+
+<template>
+  <form @submit.prevent="">
+    <input type="email" placeholder="Email" required />
+    <input type="password" placeholder="Password" required />
+    <div>
+      <input placeholder="First Name" required />
+      <input placeholder="Last Name" required />
+    </div>
+    <input type="tel" placeholder="Phone (+123...)" required />
+
+    <fieldset>
+      <legend>Role</legend>
+      <label>
+        <input type="radio" value="contractor" />
+        Contractor
+      </label>
+      <label>
+        <input type="radio" value="supplier" />
+        Supplier
+      </label>
+      <label>
+        <input type="radio" value="homeowner" />
+        Homeowner
+      </label>
+    </fieldset>
+
+    <button type="submit">Sign Up</button>
+  </form>
+</template>
