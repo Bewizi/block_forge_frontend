@@ -97,29 +97,35 @@ useIntersectionObserver(
           <AppLink to="/projects">Projects</AppLink>
 
           <!-- contractor hub -->
-          <AppLink to="/contractor-hub">Contractor Hub</AppLink>
+          <!-- <AppLink to="/contractor-hub">Contractor Hub</AppLink> -->
 
           <!-- contact -->
-          <AppLink to="/contact">Contact Us</AppLink>
         </nav>
 
-        <!-- login and signup button -->
         <div class="lg:flex gap-5 hidden">
-          <!-- login -->
+          <AppLink to="/contact">
+            <Button_UI class="rounded-full font-roboto_mono"> Contact Us </Button_UI>
+          </AppLink>
+        </div>
+
+        <!-- login and signup button
+        <div class="lg:flex gap-5 hidden">
+
           <AppLink to="/auth/login">
             <Button_UI class="rounded-full font-roboto_mono">Login</Button_UI>
           </AppLink>
 
-          <!-- register -->
+
           <AppLink to="/auth/register ">
             <Button_UI variant="secondary" class="font-roboto_mono rounded-full"
-              >Register</Button_UI
+            >Register</Button_UI
             >
           </AppLink>
         </div>
+        -->
 
         <!-- icons -->
-        <div class="flex lg:hidden">
+        <div class="flex lg:hidden cursor-pointer">
           <Icon
             v-if="showNavBarMobile"
             @click="toogleCLoseNavbar"
@@ -141,8 +147,8 @@ useIntersectionObserver(
       </div>
 
       <!-- mobile view nav -->
-      <nav v-show="showNavBarMobile" class="flex flex-col lg:hidden space-y-8">
-        <AppLink to="/">Home</AppLink>
+      <nav v-show="showNavBarMobile" class="flex flex-col lg:hidden space-y-8 px-10 pt-5">
+        <AppLink @click="showNavBarMobile = false" to="/">Home</AppLink>
         <!-- product -->
         <div @click="toogleProducts" class="cursor-pointer">
           <span class="flex items-center gap-2 relative"
@@ -158,19 +164,21 @@ useIntersectionObserver(
           <Transition>
             <div
               v-show="showProducts"
-              class="absolute top-16 px-5 py-2 rounded-md bg-primary_bg w-[100px] space-y-2"
+              class="absolute top-20 px-5 py-2 rounded-md bg-primary_bg w-[100px] space-y-2"
             >
-              <AppLink to="/hollow">Hollow</AppLink>
-              <AppLink to="/solid" class="block">Solid</AppLink>
+              <AppLink to="/hollow" @click="showNavBarMobile = false">Hollow</AppLink>
+              <AppLink to="/solid" class="block" @click="showNavBarMobile = false">Solid</AppLink>
             </div>
           </Transition>
         </div>
 
         <!-- about us -->
-        <AppLink to="/about">About Us</AppLink>
-        <AppLink to="/porjects">Projects</AppLink>
-        <AppLink to="/">Contractor Hub</AppLink>
-        <AppLink to="/contact">Contact</AppLink>
+        <AppLink to="/about" @click="showNavBarMobile = false">About Us</AppLink>
+        <AppLink to="/projects" @click="showNavBarMobile = false">Projects</AppLink>
+        <!-- <AppLink to="/">Contractor Hub</AppLink> -->
+        <AppLink to="/contact" @click="showNavBarMobile = false">
+          <Button_UI class="rounded-full font-roboto_mono"> Contact Us </Button_UI>
+        </AppLink>
       </nav>
     </header>
   </section>
